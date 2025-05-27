@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.background-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 1) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+    background-size:
+        120px 120px,
+        100px 100px,
+        80px 80px,
+        60px 60px;
+    background-position:
+        0% 0%,
+        25% 0%,
+        50% 0%,
+        75% 0%;
+    animation:
+        fallAndSwayStars1 30s linear infinite,
+        fallAndSwayStars2 25s linear infinite,
+        fallAndSwayStars3 20s linear infinite,
+        fallAndSwayStars4 35s linear infinite;
+}
+
+@keyframes fallAndSwayStars1 {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 15% 50vh;
+    }
+
+    100% {
+        background-position: 0% 100vh;
+    }
+}
+
+@keyframes fallAndSwayStars2 {
+    0% {
+        background-position: 25% 0%;
+    }
+
+    50% {
+        background-position: 30% 50vh;
+    }
+
+    100% {
+        background-position: 25% 100vh;
+    }
+}
+
+@keyframes fallAndSwayStars3 {
+    0% {
+        background-position: 50% 0%;
+    }
+
+    50% {
+        background-position: 45% 50vh;
+    }
+
+    100% {
+        background-position: 50% 100vh;
+    }
+}
+
+@keyframes fallAndSwayStars4 {
+    0% {
+        background-position: 75% 0%;
+    }
+
+    50% {
+        background-position: 80% 50vh;
+    }
+
+    100% {
+        background-position: 75% 100vh;
+    }
+}
+
+.btnChangeLanguage {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: rgb(35, 211, 255);
+    box-shadow: 0 0 8px rgba(0, 255, 247, 0.862);
+    font-weight: 700;
+}
+
+.btnChangeLanguage:hover {
+    color: black;
+    background-color: #f4eeee;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.862);
+    transform: translateY(-2px);
+}
+
+.btnChangeLanguage:active {
+    background-color: #222;
+    color: white;
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+header {
+    height: 8vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+}
+
+#containerInput {
+    width: 700px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#containerInput input {
+    width: 100%;
+    height: 4vh;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+#containerInput button {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.862);
+    border: 1px solid white;
+}
+
+#containerInput button:hover {
+    color: black;
+    background-color: #f4eeee;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.862);
+    border: 3px solid #000;
+}
+
+#containerInput button:active {
+    background-color: #222;
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    color: white;
+    border: 1px solid white;
+}
+
+#filteringANDSorting {
+    text-align: center;
+}
+
+#filteringANDSorting button {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: rgb(35, 211, 255);
+    box-shadow: 0 0 8px rgba(0, 255, 247, 0.862);
+    font-weight: 700;
+}
+
+#filteringANDSorting button:hover {
+    color: black;
+    background-color: #f4eeee;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.862);
+    transform: translateY(-2px);
+}
+
+#filteringANDSorting button:active {
+    background-color: #222;
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+}
+
+#containerButtons {
+    display: none;
+}
+
+#containerButtons button {
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: rgb(35, 211, 255);
+    box-shadow: 0 0 8px rgba(0, 255, 247, 0.862);
+    font-weight: 700;
+}
+
+#containerButtons button:hover {
+    color: black;
+    background-color: #f4eeee;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.862);
+    transform: translateY(-2px);
+}
+
+#containerButtons button:active {
+    background-color: #222;
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.container3 {
+    display: flex;
+    justify-content: center;
+}
+
+.containerTasks li {
+    width: 700px;
+    background-color: #c6c4c4;
+    margin-top: 10px;
+    list-style-type: none;
+    border-radius: 5px;
+    display: flex;
+    font-size: 1.5rem;
+}
+
+li button {
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+}
+
+.btnC {
+    background-color: #6aff00;
+}
+
+.btnX {
+    background-color: red;
+}
+
+footer {
+    width: 100vw;
+    height: 30px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}

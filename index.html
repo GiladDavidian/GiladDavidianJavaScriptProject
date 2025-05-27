@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <div class="background-stars"></div>
+    <header>
+        <h1>Task Manager</h1>
+    </header>
+
+    <main>
+        <button class="btnChangeLanguage">עברית</button>
+        <div id="container">
+            <div id="containerInput">
+                <input type="text" placeholder="Write the mission" class="inputMission">
+                <input type="date" class="inputDate">
+                <button class="btnAdd">Add</button>
+            </div>
+        </div>
+        <div id="filteringANDSorting">
+            <button class="btnSorting">Sorting</button>
+            <button class="btnFiltering">Filtering</button>
+        </div>
+        <div class="container2">
+            <div id="containerButtons">
+                <button class="btnEverything" id="btnEverything">Everything</button>
+                <button class="btnCompleted" id="btnCompleted">Completed</button>
+                <button class="btnActivity" id="btnActivity">Activity</button>
+            </div>
+        </div>
+
+        <div class="container3">
+            <ul class="containerTasks">
+            </ul>
+        </div>
+    </main>
+
+    <footer>By Gilad Davidian</footer>
+</body>
+
+</html>

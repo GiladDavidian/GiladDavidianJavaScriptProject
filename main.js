@@ -57,11 +57,12 @@ function renderTasks() {
     filteredTasks.forEach(task => {
         let liElement = document.createElement('li')
         liElement.innerHTML = `
-            <li>
-                Mission: ${task.missionText}, Date: ${task.dueDate}
+        
+            Mission: ${task.missionText}, Date: ${task.dueDate}
+            <div class="listButtons">
                 <button class="btnC"></button>
                 <button class="btnX"></button>
-            </li>
+            </div>
         `
         if (task.completed) {
             liElement.style.textDecoration = 'line-through';
@@ -73,6 +74,7 @@ function renderTasks() {
                 clickedLi.style.textDecoration = 'line-through';
                 task.completed = true;
                 saveTasks(tasks);
+                renderTasks()
             } else if (event.target.classList.contains('btnX')) {
                 const indexToDelete = tasks.findIndex(t => t.id === task.id);
                 if (indexToDelete !== -1) {

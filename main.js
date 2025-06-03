@@ -57,12 +57,13 @@ function renderTasks() {
     filteredTasks.forEach(task => {
         let liElement = document.createElement('li')
         liElement.innerHTML = `
-        
             Mission: ${task.missionText}, Date: ${task.dueDate}
-            <div class="listButtons">
-                <button class="btnC"></button>
-                <button class="btnX"></button>
-            </div>
+            ${!task.isPermanent ? `
+                <div class="listButtons">
+                    <button class="btnC">&#10004;</button>
+                    <button class="btnX">&#10008;</button>
+                </div>
+                ` : ''}
         `
         if (task.completed) {
             liElement.style.textDecoration = 'line-through';
@@ -96,7 +97,7 @@ function addTask() {
         dueDate: dateVal,
         completed: false
     }
-    tasks.push(newTask)
+    tasks.unshift(newTask)
     saveTasks(tasks)
     inputMission.value = ''
     inputMission.style.border = '1px solid black'
@@ -152,14 +153,10 @@ function sortTasks(tasks) {
     tasks.sort((a, b) => {
         const dateA = new Date(a.dueDate);
         const dateB = new Date(b.dueDate);
-        return dateA.getTime() - dateB.getTime(); // משווה את חותמות הזמן המילישניות
+        return dateA.getTime() - dateB.getTime();
     });
     renderTasks();
 };
-
-function refreshPage() {
-    location.reload();
-}
 
 btnEverything.addEventListener("click", () => {
     currentFilter = "all";
@@ -180,4 +177,27 @@ btnSorting.addEventListener('click', () => {
     sortTasks(tasks);
 });
 
+function fetchInitialTasks() {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+        .then((response) => response.json())
+        .then((json) => {
+            const savedTasks = getTasks();
+            const fetchTasks = json.map((task) => ({
+                id: task.id,
+                missionText: task.title,
+                dueDate: new Date().toISOString().split('T')[0],
+                completed: false,
+                isPermanent: true
+            }));
+            if (savedTasks.length === 0) {
+                tasks = [...fetchTasks];
+                saveTasks(tasks);
+            } else {
+                tasks = savedTasks;
+            }
+            renderTasks();
+        });
+}
+
+fetchInitialTasks()
 document.addEventListener('DOMContentLoaded', renderTasks);
